@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block style %}
+
+{% endblock %}
+{% block content %}
+	{% for x in range(book_ammount) %}
+		<br>
+			<div style="display:flex;justify-content:center" class="row row-cols-1 row-cols-md-3 g-4">
+			  <div class="col">
+			    <div class="card">
+			    {% block img_tag %}
+			    {% endblock %}
+			    <img src="/static/images/filename0{{x}}.jpg" alt="..." >
+
+			      <div class="card-body">
+			      	<h2> {{ authors[x] }}
+			        <h5 class="card-title">{{titles[x]}}</h5>
+			        <br>
+			        <div style="color:blue;">ფასი <nobr><p style="color: red"> {{ prices[x] }}</p></nobr></div>
+			        <a href="{{url_for('books',img_src_inc=x,title=titles[x],price=prices[x])}}" class="card-text">დააჭირეთ დეტალურად სანახავად</a>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+	{% endfor %}
+{% endblock %}

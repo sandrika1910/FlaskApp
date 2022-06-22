@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+{% block style %}
+	<style>
+
+	</style>
+{% endblock %}
+{% block navbar %}
+	{{ super() }}
+{% endblock %}
+	<h2>BOOK NAMES </h2>
+{% block content %}
+	<div style="display:flex;justify-content: center" class="row row-cols-1 row-cols-md-3 g-4">
+	  <div class="col">
+	    <div class="card">
+	       {% block img_tag %}
+	       	{{ super() }}
+	       {% endblock %}
+	       <img style="display:flex;justify-content: center"src="/static/images/filename0{{img_src_inc}}.jpg" alt="...">
+	      <div class="card-body">
+	      	<h3>{{ author }}
+	        <h5 class="card-title">{{title}}</h5>
+	        <p>{{ price }}</p>
+	        <button class="button button-like">
+	          <i class="fa fa-heart"></i>
+	          <span>Like</span>
+	        </button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+{% endblock %}

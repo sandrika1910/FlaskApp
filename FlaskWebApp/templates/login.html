@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block styles %}
+	<style>
+		.form-div{
+			display: flex;
+			justify-content: center;
+
+		}
+	</style>
+{% endblock %}
+{% block title %}
+	<title>ავტორიზაცია</title>	
+{% endblock %}
+{% block content %}
+	<br>
+	<h2 style="text-align:center;">ავტორიზაციის გვერდი</h2>
+	<br>
+	<div class="form-div">
+		<form method="post" style="width:50%; margin-left:20px;">
+	        <input type="text" name="username" class="form-control mb-3 mt-3" placeholder="მომხმარებელი">
+	        <br>
+	        <input type="password" name="password" class="form-control" placeholder="პაროლი">
+	        <br>
+	        {% with messages = get_flashed_messages(with_categories=true) %}
+		  		{% for cat,msg in messages %}
+		  			<p class="{{msg}}">{{ msg }}</p>
+		  		{% endfor %}
+		  	{% endwith %}
+	        <button type="submit" class="btn btn-success mt-3" style="margin-top:5px; margin-left:40%">შესვლა</button>
+		</form>
+	</div>
+{% endblock %}
